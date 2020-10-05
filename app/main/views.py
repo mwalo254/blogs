@@ -2,10 +2,10 @@ import markdown2
 from flask import render_template,request,redirect,url_for,abort, flash
 from . import main
 from .forms import BlogForm, CommentForm, UpdateProfile,UpdateBlogForm
-from .. import db, photos
+from .. import db
 from ..models import Blog, User,Comment
 from flask_login import login_required, current_user
-from ..requests import getQuotes
+from ..request import getQuotes
 
 
 # Views
@@ -16,7 +16,7 @@ def index():
     View root page function that returns the index page and its data
     '''
 
-    blog= Blog.query.all()
+    blog = Blog.query.all()
     # form = BlogForm()
     quotes=getQuotes()
     title = 'Home - Welcome to our Blogging-app Website Online'

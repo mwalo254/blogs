@@ -1,6 +1,7 @@
 import urllib.request,json
+import requests
+
 from .models import Quotes
-import requests 
 from config import Config
 
 base_url = None

@@ -18,13 +18,9 @@ mail = Mail()
 simple = SimpleMDE()
 
 def create_app(config_name):
-
     app = Flask(__name__)
     
-    
-    
     # Creating the app configurations
-
     app.config.from_object(config_options[config_name])
 
     # Initializing flask extensions
@@ -41,7 +37,7 @@ def create_app(config_name):
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
 
-    from .requests import configure_request
+    from .request import configure_request
     configure_request(app)
 
     return app
